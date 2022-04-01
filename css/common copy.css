@@ -37,8 +37,8 @@ header {
     justify-content: space-between;
     align-items: center; 
     background: transparent;
-    z-index: 1
-    
+    z-index: 1;
+
 }
 
 
@@ -117,36 +117,109 @@ header .icons button {
 
 
 
-
 /*contents영역*/
-.list_nowReading, .list_nowBest,
-.list_recommend {
-    left: var(--padding-large);
+    /*swiper*/
+.mySwiper {
     position: relative;
+    width: 100%;
     top: 600px;
-    
+    padding-bottom: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
-    /*list 이름*/
-.listTitle {
-    color: var(--white-color);
-    padding-top: var(--padding-large);
-    padding-bottom: calc(var(--padding)/2);
+.swiper {
+    width: 100%;
+    height: 100%;
 }
 
-    /*책 이미지 flex*/
-.books {
+.swiper-slide {
+    text-align: center;
+    z-index: 10;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
-    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
 }
 
-    /*세부 책 이미지 조정*/
-.list_nowReading img,
-.list_nowBest img,
-.list_recommend img {
+.swiper-slide img {
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+    /*스와이퍼 버튼*/
+.swiper-pagination-bullet {
+    width: 20px;
+    height: 3px;
+    border-radius: 0;
+    background-color: #fff;
+}
+
+
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    opacity: 0;
+}
+
+
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background-size: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+    border-radius: 50%;
+    -webkit-transition: 0.4S;
+    transition: 0.4s;
+    position: absolute;
+    color: black;
     
-    padding-right: var(--padding);
-    height: 15rem;
+}
+
+
+.swiper-button-prev:after, 
+.swiper-rtl .swiper-button-next:after, 
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+    display: none;
+}
+
+.swiper-button-next:hover ,
+.swiper-button-prev:hover {
+    background-color: rgb(240,240,240,0.7);
+    box-shadow: 0 4px 12px rgba(56, 57, 59, 0.4);
+}
+
+.swiper-button-prev {
+    background-image: url(/img/chevron-left-solid.svg);
+    left: 20px;
+}
+
+.swiper-button-next {
+    background-image: url(/img/chevron-right-solid.svg);
+    right: 20px;
+}
+
+    /*text*/
+.contentsText {
+    color: #fff;
+    padding: 10px;
 }
 
 /*footer 영역*/
@@ -225,6 +298,7 @@ footer {
     background-color:#141414;
     padding-top: 3px ;
     color: var(--white-color);
+    z-index: 1;
 }
 
 .bottomNavi button {
