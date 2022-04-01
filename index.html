@@ -11,16 +11,17 @@
 
     <!--fontAswome-->
     <script src="https://kit.fontawesome.com/0b94df4e2e.js" crossorigin="anonymous"></script>
-    
-    <!--script, css파일 연결-->
-    <link rel="stylesheet" href="./css/common.css">
 
     <!--vue관련-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
 
     <!--swiper-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-    <title>BookFlix</title>
+
+    <!--css링크-->
+    <link rel="stylesheet" href="./css/common.css">
+
+    <title>BookFlix(copy)</title>
 </head>
 <body>
 <div id="app">
@@ -46,50 +47,44 @@
     </section>
 
     <!--contents : books list-->
-    
-    <!--1. 독서중인 책-->
-    
-
-    <section class="list_nowReading">
-        <h3 class="listTitle">000님이, 독서중인 도서</h3>
-        
-        
-    </section>
-
-    <section class="list_nowBest">
-        <h3 class="listTitle">지금, 서점 Best Top10</h3>
-        <div class="books">
-            <img v-for="book in books" :src="book.img" :alt="book.name">
-        </div>
-    </section>
-
-    <section class="list_recommend">
-        <h3 class="listTitle">000님의 취향 저격 베스트 도서</h3>
-        <div class="books">
-            <img v-for="book in books" :src="book.img" :alt="book.name">
-        </div>
-    </section>
-
-    <section class="list_nowBest">
-        <h3 class="listTitle">한 달 이내에 출간된 책</h3>
-        <div class="books">
-            <img v-for="book in books" :src="book.img" :alt="book.name">
-        </div>
-    </section>
-
-    <section class="list_nowBest">
-        <h3 class="listTitle">커밍 순, 놓치기 아쉬운 책</h3>
-        <div class="books">
-            <img v-for="book in books" :src="book.img" :alt="book.name">
-        </div>
-    </section>
+    <!-- Swiper -->
 
     <div class="swiper mySwiper">
+        <div class="contentsText"><h2>000님이, 독서중인 책</h2></div>
+            
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img v-for="book in books" :src="book.img" :alt="book.name"></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
         </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+    </div>
+
+
+    <div class="swiper mySwiper">
+        <div class="contentsText"><h2>000님이, 독서중인 책</h2></div>
+            
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt="">d</div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/book1.jpg" alt=""></div>
+        </div>
+            <div class="swiper-button-next"><img src="/img/chevron-right-solid.svg" alt=""></div>
+            <div class="swiper-button-prev"><img src="/img/chevron-left-solid.svg" alt=""></div>
             <div class="swiper-pagination"></div>
     </div>
 
@@ -157,74 +152,18 @@
     </section>
 
 </div>
-
-    <!--Swiper-->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
     <script>
-        let swiper = new Swiper(".mySwiper", {
-            slidesPerView: 8,
-            spaceBetween: 20,
-            slidesPerGroup: 3,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            },
-            navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-            },
-        });
-        </script>
-
-    <script>
-
-
-        new Vue({
-            el : "#app",
-            data : {
-                books : [
-                    {
-                        name : '파친코1',
-                        img : './img/book1.jpg',
-                    },
-                    {
-                        name : '파친코1',
-                        img : './img/book1.jpg',
-                    },
-                    {
-                        name : '파친코1',
-                        img : './img/book1.jpg',
-                    },
-                    {
-                        name : '파친코1',
-                        img : './img/book1.jpg',
-                    },
-                    {
-                        name : '파친코1',
-                        img : './img/book1.jpg',
-                    },
-                    {
-                        name : '파친코1',
-                        img : './img/book1.jpg',
-                    },
-                    {
-                        name : '파친코1',
-                        img : './img/book1.jpg',
-                    },
-                    {
-                        name : '파친코1',
-                        img : './img/book1.jpg',
-                    },
-                ],
-            },
-            methods : {
-
-            }
+        const app = new Vue({
+            el : '#app'
         })
     </script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!--jsfile-->
+    <script src="./js/swiper.js"></script>
+
 </body>
 </html>
+
+
