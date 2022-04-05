@@ -25,29 +25,35 @@
 </head>
 <body>
 <div id="app">
-    <header>
+    <header id="header">
         <span class="logo">
             <img src="./img/BookFlixLogo.png" alt="Bookflix Logo">
         </span>
         <span class="icons">
-            <button @click="alamContents=!alamContents"><i class="fa-solid fa-bell"></i></button>
-            <button><i class="fa-solid fa-user"></i></button>
+            <button ><i class="fa-solid fa-bell"></i>
+                
+            </button>
+            <button>
+                <i class="fa-solid fa-user"></i>
+            </button>
         </span>
     </header>
 
-    <div v-show="alamContents" class="alarm">
-        <div class="alarmContent">^^</div>
-        <div class="alarmContent">^^</div>
-        <div class="alarmContent">^^</div>
-        <div class="alarmContent">^^</div>
-        <div class="alarmContent">^^</div>
-        <div class="alarmContent">^^</div>
-        <div class="alarmContent">^^</div>
-        <div class="alarmContent">^^</div>
-        <div class="alarmContent">^^</div>
-       
-    </div>
-        
+    <!--notifications-->
+    <span class="notificationMenu">
+        <div class="notificationMenu_content" v-for="noti in Notifications">
+                <img class="notificationMenu_img" :src="noti.link" alt="">
+            <div>
+                <p class="notificationMenu_name">{{noti.name}}</p>
+                <p class="notificationMenu_days">{{noti.days}}</p>
+            </div>
+                
+        </div>
+    </span>
+
+    <!--프로필아이콘-->
+    
+
     <!--main이미지 slider사용으로 이미지가 변경됨-->
     <section class="banner">
             <div class="bannerText">
@@ -93,6 +99,7 @@
     <script src="./components/contents-component.js"></script>    
     <script src="./components/footer-component.js"></script>
     <script src="./components/bottom_nave.js"></script>
+    <script src="./js/data_notification.js"></script>
 
     <!--Vue instance-->
     <script>
@@ -106,7 +113,7 @@
                     {title : '곧 출간될 책' },
                     {title : '내가 찜한 도서' },
                 ],
-                alamContents : false,
+                Notifications : dataNotification,
             }
         })
     </script>
@@ -116,6 +123,7 @@
     <!--jsfile-->
     <script src="./js/swiper.js"></script>
 
+    <script src="./js/header.js"></script>
 </body>
 </html>
 
