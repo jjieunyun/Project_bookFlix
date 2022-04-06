@@ -40,7 +40,7 @@
     </header>
 
     <!--notifications-->
-    <span class="notificationMenu" hidden v-show="notiDisplay">
+    <div class="notificationMenu" v-show="notiDisplay">
         <div class="notificationMenu_content" v-for="noti in Notifications">
                 <img class="notificationMenu_img" :src="noti.link" alt="">
             <div>
@@ -49,7 +49,7 @@
             </div>
                 
         </div>
-    </span>
+    </div>
 
     <!--프로필아이콘-->
     
@@ -68,23 +68,44 @@
     <!--contents : books list-->
     <!-- Swiper -->
     <contents-component>
-        <template>{{titles[0].title}}</template>
+        <template v-slot:title>{{titles[0].title}}</template>
+        <template v-slot:div>
+            <!--데이터를 바꿔줄 부분 슬롯안에 넣음-->
+                <div class="swiper-slide" v-for="(book,index) in books1" :key="index">
+                    <img :src="book.link">
+                    <div class="content_box">{{book.name}}</div>
+                </div>
+        </template>
     </contents-component>
 
     <contents-component>
-        <template>{{titles[1].title}}</template>
+        <template v-slot:title>{{titles[1].title}}</template>
+        <template v-slot:div>
+            <!--데이터를 바꿔줄 부분 슬롯안에 넣음-->
+            <div class="swiper-slide" >
+                <img :src="book.link" alt="">
+            </div>
+        </template>
     </contents-component>
 
     <contents-component>
-        <template>{{titles[2].title}}</template>
+        <template v-slot:title>{{titles[2].title}}</template>
+        <template v-slot:div>
+            <!--데이터를 바꿔줄 부분 슬롯안에 넣음-->
+            <div class="swiper-slide" v-for="book in books1">
+                <img :src="book.link" alt="">
+            </div>
+        </template>
     </contents-component>
 
     <contents-component>
-        <template>{{titles[3].title}}</template>
-    </contents-component>
-
-    <contents-component>
-        <template>{{titles[4].title}}</template>
+        <template v-slot:title>{{titles[3].title}}</template>
+        <template v-slot:div>
+            <!--데이터를 바꿔줄 부분 슬롯안에 넣음-->
+            <div class="swiper-slide" v-for="book in books1">
+                <img :src="book.link" alt="">
+            </div>
+        </template>
     </contents-component>
 
     <!--bottom-navi-->
@@ -100,12 +121,15 @@
     <script src="./components/footer-component.js"></script>
     <script src="./components/bottom_nave.js"></script>
     <script src="./js/data_notification.js"></script>
+    <script src="./js/data_books1.js"></script>
 
-    <!--Vue instance-->
+    <!--Vue instance-->                                                                                     
     <script>
         const app = new Vue({
             el : '#app',
             data : {
+
+                index : 0,
                 notiDisplay : false,
                 titles : [
                     {title : '000님이, 독서중인 책' },
@@ -115,6 +139,9 @@
                     {title : '내가 찜한 도서' },
                 ],
                 Notifications : dataNotification,
+                books1 : books1,
+            },
+            methods : {
             }
         })
     </script>
