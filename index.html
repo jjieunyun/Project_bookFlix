@@ -30,7 +30,7 @@
             <img src="./img/BookFlixLogo.png" alt="Bookflix Logo">
         </span>
         <span class="icons">
-            <button ><i class="fa-solid fa-bell"></i>
+            <button @click="notiDisplay=!notiDisplay" ><i class="fa-solid fa-bell"></i>
                 
             </button>
             <button>
@@ -40,7 +40,7 @@
     </header>
 
     <!--notifications-->
-    <span class="notificationMenu">
+    <span class="notificationMenu" hidden v-show="notiDisplay">
         <div class="notificationMenu_content" v-for="noti in Notifications">
                 <img class="notificationMenu_img" :src="noti.link" alt="">
             <div>
@@ -106,6 +106,7 @@
         const app = new Vue({
             el : '#app',
             data : {
+                notiDisplay : false,
                 titles : [
                     {title : '000님이, 독서중인 책' },
                     {title : '지금, 서점 Best Top10' },
