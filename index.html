@@ -29,18 +29,18 @@
         <span class="logo">
             <img src="./img/BookFlixLogo.png" alt="Bookflix Logo">
         </span>
-        <span class="icons">
-            <button @click="notiDisplay=!notiDisplay" ><i class="fa-solid fa-bell"></i>
+        <div class="icons">
+            <span @mouseover="notiDisplay=true" ><i class="fa-solid fa-bell"></i>
                 
-            </button>
-            <button>
+            </span>
+            <span @mouseover="profileDisplay=true">
                 <i class="fa-solid fa-user"></i>
-            </button>
-        </span>
+            </span>
+        </div>
     </header>
 
     <!--notifications-->
-    <div class="notificationMenu" v-show="notiDisplay">
+    <div class="notificationMenu" v-show="notiDisplay" @mouseleave="notiDisplay=false">
         <div class="notificationMenu_content" v-for="noti in Notifications">
                 <img class="notificationMenu_img" :src="noti.link" alt="">
             <div>
@@ -52,6 +52,27 @@
     </div>
 
     <!--프로필아이콘-->
+    <div class="profileMenu" v-show="profileDisplay" @mouseleave="profileDisplay=false">
+        <div class="profileMenu_content" v-for="data in dataPrifile" :key="index">
+                <img class="profileMenu_img" :src="data.link" alt="">
+                <p class="profileMenu_name">{{data.name}}</p>   ``
+        </div>
+        <div style="border-top : #787A7C 1px solid; padding-top: 15px;" class="profileMenu_box">
+            <i class="fa-solid fa-pencil"></i>
+        <span>프로필관리</span>
+        </div>
+        <div class="profileMenu_box">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>계정</span>
+        </div>
+        <div class="profileMenu_box">
+            <i class="fa-solid fa-circle-question"></i>
+            <span>고객센터</span>
+        </div>
+        <div class="profileMenu_box" style="border-top : #787A7C 1px solid; padding-top: 15px;">
+            <p>북플릭스에서 로그아웃</p>
+        </div>
+    </div>
     
 
     <!--main이미지 slider사용으로 이미지가 변경됨-->
@@ -122,15 +143,16 @@
     <script src="./components/bottom_nave.js"></script>
     <script src="./js/data_notification.js"></script>
     <script src="./js/data_books1.js"></script>
+    <script src="./js/data_profile.js"></script>
 
     <!--Vue instance-->                                                                                     
     <script>
         const app = new Vue({
             el : '#app',
             data : {
-
                 index : 0,
                 notiDisplay : false,
+                profileDisplay : false,
                 titles : [
                     {title : '000님이, 독서중인 책' },
                     {title : '지금, 서점 Best Top10' },
@@ -140,6 +162,7 @@
                 ],
                 Notifications : dataNotification,
                 books1 : books1,
+                dataPrifile : dataPrifile
             },
             methods : {
             }

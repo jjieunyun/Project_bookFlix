@@ -69,7 +69,7 @@ header .logo img {
     
 }
 
-header .icons button {
+header .icons span {
     background:none;
     border: none;
     color: var(--white-color);
@@ -77,12 +77,12 @@ header .icons button {
 }
 
 .fa-bell {
-    padding-right: 20px;
+    margin-right: 20px;
     font-size: 25px;
 }
 
 .fa-user {
-    padding-right:3px;
+    margin-right:3px;
     font-size: 25px;
     padding-right: var(--padding-large);
 
@@ -195,6 +195,57 @@ header .icons button {
     color: var(--grey-dark-color);
     font-size: 12px;
 }
+
+/*profile hover*/
+.profileMenu {
+    position:sticky;
+    display: inline;
+    top: 66px;
+    border: rgb(61, 61, 61) 1px solid;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 250px;
+    height: 445px;
+    float: right;
+    margin-right: 65px;
+    z-index: 240;
+    bottom: 0px;
+    color: #fff;
+
+}
+
+.profileMenu_content {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+
+}
+
+.profileMenu_box i {
+    height: 45px;
+    margin-left: 20px;
+    font-size: 20px;
+    margin-right: 25px;
+}
+
+.profileMenu_box p {
+    text-align: center;
+}
+
+.profileMenu_content img {
+    height: 40px;
+    margin: 10px;
+    border-radius: 20%;
+    margin-right: 20px;
+}
+
+.profileMenu_name {
+    color: #fff;
+}
+
+
+
+
 
 /*contents영역*/
     /*swiper*/
