@@ -30,49 +30,62 @@
             <img src="./img/BookFlixLogo.png" alt="Bookflix Logo">
         </span>
         <div class="icons">
-            <span @mouseover="notiDisplay=true" ><i class="fa-solid fa-bell"></i>
-                
-            </span>
-            <span @mouseover="profileDisplay=true">
-                <i class="fa-solid fa-user"></i>
-            </span>
+
+            <!--header noti + icon-->
+            <div class="innder_header_noti" @mouseleave="notiDisplay=false">
+                <span @mouseover="notiDisplay=true" >
+                    <i class="fa-solid fa-bell"></i>
+                </span>
+                <!--notifications-->
+                <div class="notificationMenu" v-show="notiDisplay" >
+                    <div class="notificationMenu_content" v-for="noti in Notifications">
+                            <img class="notificationMenu_img" :src="noti.link" alt="">
+                        <div>
+                            <p class="notificationMenu_name">{{noti.name}}</p>
+                            <p class="notificationMenu_days">{{noti.days}}</p>
+                        </div>
+                            
+                    </div>
+                </div>
+            </div>
+            
+            <!--header profile + icon-->
+            <div class="inner_header_profile" @mouseleave="profileDisplay=false">
+                <span @mouseover="profileDisplay=true">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+
+                <!--profile contents-->
+                <div class="profileMenu" v-show="profileDisplay" >
+                    <div class="profileMenu_content" v-for="data in dataPrifile" :key="index">
+                            <img class="profileMenu_img" :src="data.link" alt="">
+                            <p class="profileMenu_name">{{data.name}}</p>   ``
+                    </div>
+                    <div style="border-top : #787A7C 1px solid; padding-top: 15px;" class="profileMenu_box">
+                        <i class="fa-solid fa-pencil"></i>
+                    <span>프로필관리</span>
+                    </div>
+                    <div class="profileMenu_box">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span>계정</span>
+                    </div>
+                    <div class="profileMenu_box">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span>고객센터</span>
+                    </div>
+                    <div class="profileMenu_box" style="border-top : #787A7C 1px solid; padding-top: 15px;">
+                        <p>북플릭스에서 로그아웃</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </header>
 
     <!--notifications-->
-    <div class="notificationMenu" v-show="notiDisplay" @mouseleave="notiDisplay=false">
-        <div class="notificationMenu_content" v-for="noti in Notifications">
-                <img class="notificationMenu_img" :src="noti.link" alt="">
-            <div>
-                <p class="notificationMenu_name">{{noti.name}}</p>
-                <p class="notificationMenu_days">{{noti.days}}</p>
-            </div>
-                
-        </div>
-    </div>
+    
 
-    <!--프로필아이콘-->
-    <div class="profileMenu" v-show="profileDisplay" @mouseleave="profileDisplay=false">
-        <div class="profileMenu_content" v-for="data in dataPrifile" :key="index">
-                <img class="profileMenu_img" :src="data.link" alt="">
-                <p class="profileMenu_name">{{data.name}}</p>   ``
-        </div>
-        <div style="border-top : #787A7C 1px solid; padding-top: 15px;" class="profileMenu_box">
-            <i class="fa-solid fa-pencil"></i>
-        <span>프로필관리</span>
-        </div>
-        <div class="profileMenu_box">
-            <i class="fa-solid fa-circle-user"></i>
-            <span>계정</span>
-        </div>
-        <div class="profileMenu_box">
-            <i class="fa-solid fa-circle-question"></i>
-            <span>고객센터</span>
-        </div>
-        <div class="profileMenu_box" style="border-top : #787A7C 1px solid; padding-top: 15px;">
-            <p>북플릭스에서 로그아웃</p>
-        </div>
-    </div>
+    
     
 
     <!--main이미지 slider사용으로 이미지가 변경됨-->
@@ -151,7 +164,7 @@
             el : '#app',
             data : {
                 index : 0,
-                notiDisplay : false,
+                notiDisplay : true,
                 profileDisplay : false,
                 titles : [
                     {title : '000님이, 독서중인 책' },
